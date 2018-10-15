@@ -4,3 +4,13 @@
     border-radius: 25px;
     padding: 40px;
 }
+#main{
+    height: 100vh;
+    background-image: url(../images/writing-wallpaper.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+#main label,#main input{
+    color: white;
+}
