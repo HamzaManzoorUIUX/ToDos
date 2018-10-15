@@ -1,18 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/script.js"></script>
 </head>
+
 <body>
-    
+    <div id="main">
+        <div class="row">
+            <div class="col s12 m6 offset-m3 l4 offset-l4 centerForm">
+                <h1 class="center">Add New</h1>
+                <form id="addForm">
+                    <div class="input-field">
+                        <input type="text" id="titel">
+                        <label for="titel">Titel</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="location">
+                        <label for="location">Location</label>
+                    </div>
+                    <div class="input-field">
+                            <input type="time" id="time">
+                            <label for="time">Time</label>
+                        </div>
+                        <div class="input-field">
+                                <input type="date" id="date">
+                                <label for="date">Date</label>
+                            </div>
+                    <div class="input-field">
+                        <input type="text" id="decription">
+                        <label for="decription">Decription</label>
+                    </div>
+
+                    <div class="input-field center">
+                        <button class="btn" type="submit">
+                            save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/style.js"></script>
 </body>
+
 </html>
