@@ -4,13 +4,78 @@
     border-radius: 25px;
     padding: 40px;
 }
-#main{
-    height: 100vh;
+
+body{
     background-image: url(../images/writing-wallpaper.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
-#main label,#main input{
-    color: white;
+label{
+    color: white !important;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: transparent;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: transparent;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: transparent;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color: transparent;
+}
+@media(min-width:992px)
+{
+    #slide-out{
+        transform: translateX(0%) !important;
+    }
+    .sidenav-trigger{
+        display: none;
+    }
+}
+.sidenav-trigger{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.card-panel{
+background-color: rgba(161, 136, 127, 0.5);
+width: 100%;
+}
+.displayNone{
+    display: none;
+}
+#myModel{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10000;
+    background-color: rgba(56, 56, 56, 0.5);
+}
+#frontModel{
+    background-color: white;
+    min-height: 100px;
+    max-height: 90vh;
+    overflow-y: scroll;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#modelFoot{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+.closeBtn{
+    color: rgb(63, 62, 62);
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }

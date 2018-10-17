@@ -7,50 +7,140 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/animation.css">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
 </head>
 
 <body>
-    <div id="main">
-        <div class="row">
-            <div class="col s12 m6 offset-m3 l4 offset-l4 centerForm">
-                <h1 class="center white-text">Add New</h1>
-                <form id="addForm">
-                    <div class="input-field">
-                        <input type="text" id="titel">
-                        <label for="titel">Titel</label>
-                    </div>
-                    <div class="input-field">
-                        <input type="text" id="location">
-                        <label for="location">Location</label>
-                    </div>
-                    <div class="input-field">
-                            <input type="text" class="timepicker" id="time">
+    <div id="form" class="displayNone">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <form id="addForm">
+                        <div class="input-field">
+                            <input type="text" id="title" required value="Hamza">
+                            <label for="titel">Titel</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="location" required>
+                            <label for="location">Location</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="timepicker" value="12:12" id="time" required>
                             <label for="time">Time</label>
                         </div>
                         <div class="input-field">
-                                <input type="text" class="datepicker" id="date">
-                                <label for="date">Date</label>
-                            </div>
-                    <div class="input-field">
-                        <input type="text" id="decription">
-                        <label for="decription">Decription</label>
-                    </div>
+                            <input type="text" class="datepicker" value="12/2/18" id="date">
+                            <label for="date">Date</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="decription" value="kjshclkjsnclknsklc" required>
+                            <label for="decription">Decription</label>
+                        </div>
 
-                    <div class="input-field center">
-                        <button class="btn" type="submit">
-                            Add New
+                        <div class="input-field center">
+                            <button class="btn" type="submit" id="SubmitBtn" onclick="SubmitBtnF()">
+                                Add New
+                            </button>
+                            <button class="btn" type="submit" id="SubmitBtn" onclick="changeTabes()">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Google API
+            var loc = document.getElementById('location');
+            var api = new google.maps.places.Autocomplete(loc);
+        </script>
+    </div>
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <a href="#" data-target="slide-out" class="sidenav-trigger btn white black-text">
+                    <i class="material-icons">
+                        menu
+                    </i>
+                </a>
+                <div class="col s12 m3">
+                    <ul id="slide-out" class="sidenav">
+                        <li onclick="changeTabes()">
+                            <a class="waves-effect" href="#!">
+                                <i class="material-icons">
+                                    add
+                                </i>
+                                Add New To Do
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect" href="#!">
+                                <i class="material-icons">
+                                    delete
+                                </i>
+                                Delete all
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col s12 m9">
+                    <h1 class="white-text center">Wellcome</h1>
+                    <div class="divider"></div>
+                    <div id="toDos">
+                        <div class="card-panel white-text waves-effect waves-light" onclick="openModel(event)">
+                            <label>
+                                <input type="checkbox"  />
+                                <span>Red</span>
+                            </label>
+                            <a href="javascript:void(0)" class="white-text right close">
+                                <i class="material-icons">
+                                    close
+                                </i>
+                            </a>
+                            <a href="javascript:void(0)" class="white-text right create">
+                                <i class="material-icons">
+                                    create
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red waves-circle waves-effect waves-light" onclick="changeTabes()">
+                <i class="large material-icons">
+                    add
+                </i>
+            </a>
+        </div>
+        <!-- Modal Structure -->
+        <div id="myModel" class="displayNone closeModel" onclick="closeModel(event)">
+            <div class="row">
+                <div class="col s12 m8" id="frontModel">
+                    <a href="javascript:void(0);" class="closeBtn" onclick="closeModel(event)">
+                        <i class="material-icons closeModel">
+                            clear
+                        </i>
+                    </a>
+                    <div id="modelBody"></div>
+                    <div id="modelFoot">
+                        <button class="btn red waves-effect waves-light closeModel" onclick="closeModel(event)">
+                            Cancel
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/materialize.min.js"></script>
-    <script src="js/style.js"></script>
+    <script src="js/LocalSS.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
