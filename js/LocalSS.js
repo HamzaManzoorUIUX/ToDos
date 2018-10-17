@@ -59,7 +59,7 @@ function loadHome(){
         toDos.innerHTML+=`
     <div class="card-panel white-text waves-effect waves-light" onclick="openModel(event)">
                             <label>
-                                <input type="checkbox" onclick='textLine(event,${i})' />
+                                <input type="checkbox" class="check${i}" onclick='CB2O(event,${i})' />
                                 <span class="span${i}">
                                 ${myData[i].title}
                                 </span>
@@ -80,12 +80,16 @@ function loadHome(){
     }
 }
 // line Event
-function textLine(event,i){
-    if(myData[i].comp=='true')
+function CB2O(event,i){
+    var linespan=document.querySelector(`.span${i}`);
+    var cBox=document.querySelector(`.check${i}`);
+    if(cBox.checked==true)
     {
-        myData[i].comp='false';
+        myData[i].comp='true';
+        linespan.classList.add("lineT");        
     }
     else{
-        myData[i].comp='true';
+        myData[i].comp='false';
+        linespan.classList.remove("lineT");    
     }
 }
