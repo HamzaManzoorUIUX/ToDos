@@ -46,6 +46,7 @@ function SubmitBtnF()
     myData.push(newPlan);
     saveData();
     loadHome();
+    M.toast({html: 'Data Add'});
     changeTabes(); 
     addForm.reset(); 
 }
@@ -61,7 +62,7 @@ function loadHome(){
     for(var i=0;i<myData.length;i++)
     {
         toDos.innerHTML+=`
-    <div class="card-panel white-text waves-effect waves-light" onclick="openModel(event)">
+    <div class="card-panel white-text waves-effect waves-light" onclick="viewModel(${i})">
                             <label>
                                 <input type="checkbox" class="check${i}" onclick='CB2O(event,${i})' />
                                 <span class="span${i}">
@@ -121,6 +122,7 @@ function delete1(i){
 myData.splice(i,1);
 saveData();
 loadHome();
+M.toast({html: 'Data Rmove'});
 
 }
 // delete All
@@ -128,12 +130,75 @@ function removeAll(){
     localStorage.clear();
     myData=[];
     loadHome();
+    M.toast({html: 'Remove All'});
 }
 // edit one box
 function edit1(i){
-    openModel(event);
-    modelBody.innerHTML=`
+    if(event.target.parentElement.classList.contains('create'))
+    {
+        openModel(event);
+        modelBody.innerHTML=`
     <h3>Edit</h3>
+    <table>
+                        <tr>
+                            <td>
+                            Title
+                            </td>
+                            <td>
+                            <input type="text" id="ititle" readonly value="${myData[i].title}">
+                            </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Location
+                        </td>
+                        <td>
+                        <input type="text" id="ilocation" value="${myData[i].location}" required>
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>
+                            Time
+                            </td>
+                            <td>
+                            <input type="text" class="timepicker" value="${myData[i].time}" id="itime" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Date
+                            </td>
+                            <td>
+                            <input type="text" class="datepicker" value="${myData[i].date}" id="idate">                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Decription
+                            </td>
+                            <td>
+                            <input type="text" id="idec" value="${myData[i].dec}" required>                                
+                            </td>
+                        </tr>
+                    </table>
+    `;
+    modelFoot.innerHTML=`
+    <button  class="btn" id="SubmitBtn" onclick="editBtnF(${i})">
+                                Edit
+                            </button>
+                            <button class="btn red waves-effect waves-light closeModel" onclick="closeModel(event)">
+                            Cancel
+                        </button>
+    `;
+    }
+}
+
+function viewModel(i){
+    if(event.target.classList.contains('card-panel'))
+    {
+        openModel(event);
+        modelBody.innerHTML=`
+    <h3>View</h3>
     <table>
                         <tr>
                             <td>
@@ -177,4 +242,24 @@ function edit1(i){
                         </tr>
                     </table>
     `;
+    modelFoot.innerHTML=`
+                            <button class="btn red waves-effect waves-light closeModel" onclick="closeModel(event)">
+                            Cancel
+                        </button>
+    `;
+    }
+}
+function editBtnF(i)
+{
+    myData[i].title=document.getElementById('ititle').value;
+    myData[i].location=document.getElementById('ilocation').value;
+    myData[i].time=document.getElementById('itime').value;
+    myData[i].date=document.getElementById('idate').value;
+    myData[i].dec=document.getElementById('idec').value;
+    saveData();
+    loadHome(); 
+    M.toast({html: 'Data Edit'});
+    addForm.reset(); 
+    var model=document.getElementById('myModel');
+    model.className='displayNone closeModel';
 }
