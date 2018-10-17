@@ -60,7 +60,7 @@ function loadHome(){
     <div class="card-panel white-text waves-effect waves-light" onclick="openModel(event)">
                             <label>
                                 <input type="checkbox" onclick='textLine(event,${i})' />
-                                <span>
+                                <span class="span${i}">
                                 ${myData[i].title}
                                 </span>
                             </label>
@@ -76,9 +76,16 @@ function loadHome(){
                             </a>
                         </div>
     `;
+
     }
 }
 // line Event
 function textLine(event,i){
-    console.log(myData[i].comp);
+    if(myData[i].comp=='true')
+    {
+        myData[i].comp='false';
+    }
+    else{
+        myData[i].comp='true';
+    }
 }
