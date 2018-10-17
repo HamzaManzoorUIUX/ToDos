@@ -14,37 +14,37 @@
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
 </head>
 
-<body>
+<body onload="loadHome()">
     <div id="form" class="displayNone">
         <div class="container">
             <div class="row">
                 <div class="col s12 m8 offset-m2">
                     <form id="addForm">
                         <div class="input-field">
-                            <input type="text" id="iTitle" required value="Hamza">
-                            <label for="iTitle">Titel</label>
+                            <input type="text" id="title" required value="Hamza">
+                            <label for="title">Titel</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" id="iLocation" required>
-                            <label for="iLocation">Location</label>
+                            <input type="text" id="location" required>
+                            <label for="location">Location</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" class="timepicker" value="12:12" id="iTime" required>
-                            <label for="iTime">Time</label>
+                            <input type="text" class="timepicker" value="12:12" id="time" required>
+                            <label for="time">Time</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" class="datepicker" value="12/2/18" id="iDate">
-                            <label for="iDate">Date</label>
+                            <input type="text" class="datepicker" value="12/2/18" id="date">
+                            <label for="date">Date</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" id="iDecription" value="kjshclkjsnclknsklc" required>
-                            <label for="iDecription">Decription</label>
+                            <input type="text" id="dec" value="kjshclkjsnclknsklc" required>
+                            <label for="dec">Decription</label>
                         </div>
 
                         <div class="input-field center">
-                            <button class="btn" type="submit" id="SubmitBtn" onclick="SubmitBtnF()">
+                            <a href="javascript:void(0)" class="btn" id="SubmitBtn" onclick="SubmitBtnF()">
                                 Add New
-                            </button>
+                            </a>
                             <button class="btn red" id="SubmitBtn" onclick="changeTabes()">
                                 Cancel
                             </button>
@@ -55,7 +55,7 @@
         </div>
         <script>
             // Google API
-            var loca = document.getElementById('iLocation');
+            var loca = document.getElementById('location');
             var api = new google.maps.places.Autocomplete(loca);
         </script>
     </div>
@@ -91,22 +91,7 @@
                     <h1 class="white-text center">Wellcome</h1>
                     <div class="divider"></div>
                     <div id="toDos">
-                        <div class="card-panel white-text waves-effect waves-light" onclick="openModel(event)">
-                            <label>
-                                <input type="checkbox"  />
-                                <span>Red</span>
-                            </label>
-                            <a href="javascript:void(0)" class="white-text right close">
-                                <i class="material-icons">
-                                    close
-                                </i>
-                            </a>
-                            <a href="javascript:void(0)" class="white-text right create">
-                                <i class="material-icons">
-                                    create
-                                </i>
-                            </a>
-                        </div>
+                        <h1 class="white-text center">Empty</h1>
                     </div>
                 </div>
             </div>

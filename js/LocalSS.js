@@ -9,6 +9,7 @@ function Plan(title,location,time,date,dec)
     this.time=time;
     this.date=date;
     this.dec=dec;
+    this.comp='false';
 }
 
 // getData From localStorage
@@ -32,13 +33,52 @@ function SubmitBtnF()
     var date=document.getElementById('date').value;
     var dec=document.getElementById('dec').value;
     var abc=true;
-    myData.map(function(){
-        if(this.title==title)
+    for(var i=0;i<myData.length;i++)
+    {
+        if(myData[i].title===title)
         {
-            abc=false;
+        alert('Change title');
+        return 0;
         }
-    })
-    console.log(abc);
 
+    }
     var newPlan=new Plan(title,location,time,date,dec);
+    myData.push(newPlan);
+    saveData();
+    changeTabes();  
+}
+// save data in localStorage
+function saveData(){
+    localStorage.setItem('todos',JSON.stringify(myData));
+}
+
+function loadHome(){
+    toDos.innerHTML='';
+    for(var i=0;i<myData.length;i++)
+    {
+        toDos.innerHTML+=`
+    <div class="card-panel white-text waves-effect waves-light" onclick="openModel(event)">
+                            <label>
+                                <input type="checkbox" onclick='textLine(event,${i})' />
+                                <span>
+                                ${myData[i].title}
+                                </span>
+                            </label>
+                            <a href="javascript:void(0)" class="white-text right close">
+                                <i class="material-icons">
+                                    close
+                                </i>
+                            </a>
+                            <a href="javascript:void(0)" class="white-text right create">
+                                <i class="material-icons">
+                                    create
+                                </i>
+                            </a>
+                        </div>
+    `;
+    }
+}
+// line Event
+function textLine(event,i){
+    console.log(myData[i].comp);
 }
