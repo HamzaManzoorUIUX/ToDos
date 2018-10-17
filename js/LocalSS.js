@@ -55,7 +55,9 @@ function saveData(){
 }
 
 function loadHome(){
-    toDos.innerHTML='';
+    if(myData.length>0)
+    {
+        toDos.innerHTML='';
     for(var i=0;i<myData.length;i++)
     {
         toDos.innerHTML+=`
@@ -71,7 +73,7 @@ function loadHome(){
                                     close
                                 </i>
                             </a>
-                            <a href="javascript:void(0)" class="white-text right create">
+                            <a href="javascript:void(0)" class="white-text right create" onclick='edit1(${i})'>
                                 <i class="material-icons">
                                     create
                                 </i>
@@ -80,6 +82,10 @@ function loadHome(){
     `;
     O2CB(i);
     CB2O(event,i);
+    }
+    }
+    else{
+        toDos.innerHTML='<h1 class="white-text center">Empty</h1>';
     }
 }
 // line Event and CheckBox to array
@@ -116,4 +122,59 @@ myData.splice(i,1);
 saveData();
 loadHome();
 
+}
+// delete All
+function removeAll(){
+    localStorage.clear();
+    myData=[];
+    loadHome();
+}
+// edit one box
+function edit1(i){
+    openModel(event);
+    modelBody.innerHTML=`
+    <h3>Edit</h3>
+    <table>
+                        <tr>
+                            <td>
+                            Title
+                            </td>
+                            <td>
+                            ${myData[i].title}
+                            </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Location
+                        </td>
+                        <td>
+                        ${myData[i].location}
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>
+                            Time
+                            </td>
+                            <td>
+                            ${myData[i].time}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Date
+                            </td>
+                            <td>
+                            ${myData[i].date}                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Decription
+                            </td>
+                            <td>
+                            ${myData[i].dec}                                
+                            </td>
+                        </tr>
+                    </table>
+    `;
 }

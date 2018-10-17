@@ -42,9 +42,9 @@
                         </div>
 
                         <div class="input-field center">
-                            <a href="javascript:void(0)" class="btn" id="SubmitBtn" onclick="SubmitBtnF()">
+                            <button  class="btn" id="SubmitBtn" onclick="SubmitBtnF()">
                                 Add New
-                            </a>
+                            </button>
                             <button class="btn red" id="SubmitBtn" onclick="changeTabes()">
                                 Cancel
                             </button>
@@ -70,7 +70,7 @@
                 <div class="col s12 m3">
                     <ul id="slide-out" class="sidenav">
                         <li onclick="changeTabes()">
-                            <a class="waves-effect" href="#!">
+                            <a class="waves-effect" href="javascript:void(0)">
                                 <i class="material-icons">
                                     add
                                 </i>
@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="waves-effect" href="#!">
+                            <a class="waves-effect" href="javascript:void(0)" onclick="removeAll()">
                                 <i class="material-icons">
                                     delete
                                 </i>
@@ -91,7 +91,6 @@
                     <h1 class="white-text center">Wellcome</h1>
                     <div class="divider"></div>
                     <div id="toDos">
-                        <h1 class="white-text center">Empty</h1>
                     </div>
                 </div>
             </div>
@@ -112,6 +111,12 @@
                             clear
                         </i>
                     </a>
+                    <!-- <table>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table> -->
                     <div id="modelBody"></div>
                     <div id="modelFoot">
                         <button class="btn red waves-effect waves-light closeModel" onclick="closeModel(event)">
@@ -121,6 +126,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/materialize.min.js"></script>

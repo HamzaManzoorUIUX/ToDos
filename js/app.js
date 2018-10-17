@@ -31,7 +31,7 @@ function changeTabes(){
 
 // model
 function openModel(e){
-if(e.target.classList.contains('card-panel'))
+if(e.target.classList.contains('card-panel')||e.target.parentElement.classList.contains('create'))
 {
     var model=document.getElementById('myModel');
     model.className='closeModel';    

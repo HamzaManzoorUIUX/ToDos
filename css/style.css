@@ -67,6 +67,9 @@ width: 100%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
+#modelBody{
+    margin-bottom: 70px;
+}
 #modelFoot{
     position: absolute;
     bottom: 10px;
