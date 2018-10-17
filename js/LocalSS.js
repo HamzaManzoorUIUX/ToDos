@@ -45,7 +45,9 @@ function SubmitBtnF()
     var newPlan=new Plan(title,location,time,date,dec);
     myData.push(newPlan);
     saveData();
-    changeTabes();  
+    loadHome();
+    changeTabes(); 
+    addForm.reset(); 
 }
 // save data in localStorage
 function saveData(){
@@ -64,7 +66,7 @@ function loadHome(){
                                 ${myData[i].title}
                                 </span>
                             </label>
-                            <a href="javascript:void(0)" class="white-text right close">
+                            <a href="javascript:void(0)" class="white-text right close" onclick='delete1(${i})'>
                                 <i class="material-icons">
                                     close
                                 </i>
@@ -76,10 +78,11 @@ function loadHome(){
                             </a>
                         </div>
     `;
-
+    O2CB(i);
+    CB2O(event,i);
     }
 }
-// line Event
+// line Event and CheckBox to array
 function CB2O(event,i){
     var linespan=document.querySelector(`.span${i}`);
     var cBox=document.querySelector(`.check${i}`);
@@ -92,4 +95,25 @@ function CB2O(event,i){
         myData[i].comp='false';
         linespan.classList.remove("lineT");    
     }
+saveData();
+}
+
+
+// array to check box
+function O2CB(i)
+{
+if(myData[i].comp=='true')
+{
+    document.querySelector(`.check${i}`).checked=true;
+}
+else{
+    document.querySelector(`.check${i}`).checked=false;
+}
+}
+// delete any box
+function delete1(i){
+myData.splice(i,1);
+saveData();
+loadHome();
+
 }

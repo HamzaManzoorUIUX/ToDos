@@ -26,6 +26,7 @@ function changeTabes(){
         form.className='displayNone';
         main.className='';
     }
+    addForm.reset();
 }
 
 // model

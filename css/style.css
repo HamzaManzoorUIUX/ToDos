@@ -82,3 +82,9 @@ width: 100%;
 .lineT{
     text-decoration: line-through !important;
 }
+#addForm{
+    border-radius: 10px;
+    background-color: rgba(77, 76, 76,0.5);
+    padding: 20px;
+    margin: 20px;
+}
