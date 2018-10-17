@@ -13,11 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
 });
-// model of meterilizecss
-document.addEventListener('DOMContentLoaded', function(e) {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems);
-  });
 //change Tabs
 function changeTabes(){
     if(form.className=='displayNone')

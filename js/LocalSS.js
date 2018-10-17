@@ -1,31 +1,44 @@
-//change Tabs
-function changeTabes(){
-    if(form.className=='displayNone')
-    {
-        form.className='';
-        main.className='displayNone';
-        document.querySelector('div.sidenav-overlay').style.display='none';
-    }
-    else if(main.className=='displayNone')
-    {
-        form.className='displayNone';
-        main.className='';
-    }
+// pre requires
+var todosMain=document.getElementById('toDos');
+
+// object for data
+function Plan(title,location,time,date,dec)
+{
+    this.title=title;
+    this.location=location;
+    this.time=time;
+    this.date=date;
+    this.dec=dec;
 }
 
-// model
-function openModel(e){
-if(e.target.classList.contains('card-panel'))
+// getData From localStorage
+TData=localStorage.getItem('todos');
+
+// make array
+if(TData===null)
 {
-    var model=document.getElementById('myModel');
-    model.className='closeModel';    
+    var myData=[];
 }
+else{
+ myData=JSON.parse(TData);
 }
-function closeModel(e){
-    if(e.target.classList.contains('closeModel'))
-    {
-        var model=document.getElementById('myModel');
-    model.className='displayNone closeModel';
-    }
-    
+
+// save Data in Object
+function SubmitBtnF()
+{
+    var title=document.getElementById('title').value;
+    var location=document.getElementById('location').value;
+    var time=document.getElementById('time').value;
+    var date=document.getElementById('date').value;
+    var dec=document.getElementById('dec').value;
+    var abc=true;
+    myData.map(function(){
+        if(this.title==title)
+        {
+            abc=false;
+        }
+    })
+    console.log(abc);
+
+    var newPlan=new Plan(title,location,time,date,dec);
 }

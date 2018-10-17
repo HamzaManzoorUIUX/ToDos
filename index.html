@@ -21,31 +21,31 @@
                 <div class="col s12 m8 offset-m2">
                     <form id="addForm">
                         <div class="input-field">
-                            <input type="text" id="title" required value="Hamza">
-                            <label for="titel">Titel</label>
+                            <input type="text" id="iTitle" required value="Hamza">
+                            <label for="iTitle">Titel</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" id="location" required>
-                            <label for="location">Location</label>
+                            <input type="text" id="iLocation" required>
+                            <label for="iLocation">Location</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" class="timepicker" value="12:12" id="time" required>
-                            <label for="time">Time</label>
+                            <input type="text" class="timepicker" value="12:12" id="iTime" required>
+                            <label for="iTime">Time</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" class="datepicker" value="12/2/18" id="date">
-                            <label for="date">Date</label>
+                            <input type="text" class="datepicker" value="12/2/18" id="iDate">
+                            <label for="iDate">Date</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" id="decription" value="kjshclkjsnclknsklc" required>
-                            <label for="decription">Decription</label>
+                            <input type="text" id="iDecription" value="kjshclkjsnclknsklc" required>
+                            <label for="iDecription">Decription</label>
                         </div>
 
                         <div class="input-field center">
                             <button class="btn" type="submit" id="SubmitBtn" onclick="SubmitBtnF()">
                                 Add New
                             </button>
-                            <button class="btn" type="submit" id="SubmitBtn" onclick="changeTabes()">
+                            <button class="btn red" id="SubmitBtn" onclick="changeTabes()">
                                 Cancel
                             </button>
                         </div>
@@ -55,8 +55,8 @@
         </div>
         <script>
             // Google API
-            var loc = document.getElementById('location');
-            var api = new google.maps.places.Autocomplete(loc);
+            var loca = document.getElementById('iLocation');
+            var api = new google.maps.places.Autocomplete(loca);
         </script>
     </div>
     <div id="main">
