@@ -16,13 +16,7 @@ function Plan(title,location,time,date,dec)
 TData=localStorage.getItem('todos');
 
 // make array
-if(TData===null)
-{
-    var myData=[];
-}
-else{
- myData=JSON.parse(TData);
-}
+TData===null?myData=[]:myData=JSON.parse(TData);
 
 // save Data in Object
 function SubmitBtnF()
@@ -36,8 +30,7 @@ function SubmitBtnF()
     {
         if(myData[i].title===title)
         {
-        alert('Change title');
-        return 0;
+        return alert('Change title');
         }
 
     }
@@ -109,11 +102,7 @@ function O2CB()
     var CBoxs=document.querySelectorAll('input[type="checkbox"]');
     for(var i=0;i<CBoxs.length;i++)
     {
-        if(myData[i].comp=="true")
-        {
-            CBoxs[i].checked=true;
-            
-        }
+        myData[i].comp=="true"?CBoxs[i].checked=true:CBoxs[i].checked=false;
         CB2O(event,i);
     }
 }
