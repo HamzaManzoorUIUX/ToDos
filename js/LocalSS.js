@@ -27,12 +27,11 @@ else{
 // save Data in Object
 function SubmitBtnF()
 {
-    var title=document.getElementById('title').value;
-    var location=document.getElementById('location').value;
-    var time=document.getElementById('time').value;
-    var date=document.getElementById('date').value;
-    var dec=document.getElementById('dec').value;
-    var abc=true;
+    var title=document.getElementById('title').value.toLowerCase();
+    var location=document.getElementById('location').value.toLowerCase();
+    var time=document.getElementById('time').value.toLowerCase();
+    var date=document.getElementById('date').value.toLowerCase();
+    var dec=document.getElementById('dec').value.toLowerCase();
     for(var i=0;i<myData.length;i++)
     {
         if(myData[i].title===title)
@@ -115,6 +114,7 @@ function O2CB()
             CBoxs[i].checked=true;
             
         }
+        CB2O(event,i);
     }
 }
 // delete any box
