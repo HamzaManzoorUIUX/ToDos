@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+    <script src="js/wow.min.js"></script>
 </head>
 
 <body onload="loadHome()">
@@ -19,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 m8 offset-m2">
-                    <form id="addForm">
+                    <form id="addForm" class="wow fadeInDown">
                         <div class="input-field">
                             <input type="text" id="title" required value="Hamza">
                             <label for="title">Titel</label>
@@ -42,10 +43,10 @@
                         </div>
 
                         <div class="input-field center">
-                            <button  class="btn" id="SubmitBtn" onclick="SubmitBtnF()">
+                            <button  class="btn wow fadeInLeft delay-1s" id="SubmitBtn" onclick="SubmitBtnF()">
                                 Add New
                             </button>
-                            <button class="btn red" id="SubmitBtn" onclick="changeTabes()">
+                            <button class="btn red wow fadeInRight delay-1s" id="SubmitBtn" onclick="changeTabes()">
                                 Cancel
                             </button>
                         </div>
@@ -88,7 +89,7 @@
                     </ul>
                 </div>
                 <div class="col s12 m9">
-                    <h1 class="white-text center">Wellcome</h1>
+                    <h1 class="white-text center wow fadeInDown">Wellcome</h1>
                     <div class="divider"></div>
                     <div id="toDos">
                     </div>
@@ -103,7 +104,7 @@
             </a>
         </div>
         <!-- Modal Structure -->
-        <div id="myModel" class="displayNone closeModel" onclick="closeModel(event)">
+        <div id="myModel" class="displayNone closeModel wow flipInX" onclick="closeModel(event)">
             <div class="row">
                 <div class="col s12 m8" id="frontModel">
                     <a href="javascript:void(0);" class="closeBtn" onclick="closeModel(event)">

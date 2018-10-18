@@ -62,7 +62,7 @@ function loadHome(){
     for(var i=0;i<myData.length;i++)
     {
         toDos.innerHTML+=`
-    <div class="card-panel white-text waves-effect waves-light" onclick="viewModel(${i})">
+    <div class="card-panel white-text waves-effect waves-light  wow fadeInleft" onclick="viewModel(${i})">
                             <label>
                                 <input type="checkbox" class="check${i}" onclick='CB2O(event,${i})' />
                                 <span class="span${i}">
@@ -81,13 +81,12 @@ function loadHome(){
                             </a>
                         </div>
     `;
-    O2CB(i);
-    CB2O(event,i);
     }
     }
     else{
         toDos.innerHTML='<h1 class="white-text center">Empty</h1>';
     }
+    O2CB();
 }
 // line Event and CheckBox to array
 function CB2O(event,i){
@@ -105,17 +104,18 @@ function CB2O(event,i){
 saveData();
 }
 
-
 // array to check box
-function O2CB(i)
+function O2CB()
 {
-if(myData[i].comp=='true')
-{
-    document.querySelector(`.check${i}`).checked=true;
-}
-else{
-    document.querySelector(`.check${i}`).checked=false;
-}
+    var CBoxs=document.querySelectorAll('input[type="checkbox"]');
+    for(var i=0;i<CBoxs.length;i++)
+    {
+        if(myData[i].comp=="true")
+        {
+            CBoxs[i].checked=true;
+            
+        }
+    }
 }
 // delete any box
 function delete1(i){
